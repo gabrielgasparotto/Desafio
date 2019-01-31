@@ -1,9 +1,11 @@
 package com.example.desafio.model
 
-import java.math.BigDecimal
-
 class Endereco (val cep: String,
-                val longradouro: String,
+                val logradouro: String,
+                val complemento: String,
                 val bairro: String,
-                val numero: BigDecimal,
-                val estado: String)
+                val localidade: String,
+                val uf: String,
+                val unidade: String,
+                val ibge: String,
+                val gia: String)
