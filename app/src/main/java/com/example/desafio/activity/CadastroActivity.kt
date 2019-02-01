@@ -2,7 +2,6 @@ package com.example.desafio.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
 import com.example.desafio.R
@@ -19,15 +18,25 @@ class CadastroActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        //Função para escutar sempre que
-        testes.afterTextChanged {
-            if(testes.length().equals(8)){
-                val call = RetrofitInitializer().enderecoService().preencheEndereco(testes.text.toString())
+        //Função para escutar sempre que o texto for alterado
+        cepCadastro.afterTextChanged {
+            if(cepCadastro.length().equals(8)){
+                val call = RetrofitInitializer().enderecoService().preencheEndereco(cepCadastro.text.toString())
                 call.enqueue(callback({ r ->
                     val endereco = r.body()
-                    teste.text = endereco!!.logradouro
+                    if(endereco != null){
+                        numeroCadastro.requestFocus()
+                        logradouroCadastro.setText(endereco.logradouro)
+                        logradouroCadastro.isEnabled = false
+                        bairroCadastro.setText(endereco.bairro)
+                        bairroCadastro.isEnabled = false
+                        ufCadastro.setText(endereco.uf)
+                        ufCadastro.isEnabled = false
+                    }
+
                 }, { t ->
                     Log.e("Erro de retorno", "${t.message}")
+                    Toast.makeText(this, "Cep inválido", Toast.LENGTH_SHORT).show()
                 }))
             }
         }

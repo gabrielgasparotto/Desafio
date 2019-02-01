@@ -36,25 +36,19 @@ class MainActivity : AppCompatActivity() {
 
     fun addClientes(): ArrayList<Cliente>{
 
-        var endereco = Endereco(cep = "09853530",
-            logradouro = "",
-            complemento = "",
-            bairro = "",
-            localidade = "",
-            uf = "",
-            unidade = "",
-            ibge = "",
-            gia = "")
+        val endereco = Endereco(cep = "09853530",
+            logradouro = "Rua Teresina",
+            bairro = "Cooperativa",
+            uf = "SP",
+            numero = "49"
+        )
 
-        var endereco2 = Endereco(cep = "01001000",
-            logradouro = "",
-            complemento = "",
-            bairro = "",
-            localidade = "",
-            uf = "",
-            unidade = "",
-            ibge = "",
-            gia = "")
+        val endereco2 = Endereco(cep = "07074020",
+            logradouro = "Rua São Daniel",
+            bairro = "Vila Galvão",
+            uf = "SP",
+            numero = "236"
+        )
 
         val cliente = Cliente(
             nomeCompleto = "Gabriel Gasparotto Souza Cabral",

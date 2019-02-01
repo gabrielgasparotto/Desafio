@@ -1,32 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="match_parent"
+        android:background="@drawable/background2"
         tools:context=".activity.CadastroActivity">
 
-    <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/teste" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/textInputLayout"/>
-    <android.support.design.widget.TextInputLayout
+    <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="24dp"
-            android:id="@+id/textInputLayout" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <android.support.design.widget.TextInputEditText
-                android:maxLength="8"
-                android:inputType="number"
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="166dp"
+                android:layout_height="181dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="parent" android:src="@drawable/default_person"
+                android:id="@+id/imageView2" app:layout_constraintHorizontal_bias="0.497"
+        />
+
+        <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="ALO" android:id="@+id/testes"/>
-    </android.support.design.widget.TextInputLayout>
-</android.support.constraint.ConstraintLayout>
+                android:theme="@style/EditTextTheme"
+                android:textColorHint="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp" android:id="@+id/textInputLayout3" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+            <android.support.design.widget.TextInputEditText
+                    android:maxLines="1"
+                    android:textColor="@android:color/white"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nome Completo" android:id="@+id/nomeCompletoCadastro"/>
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/EditTextTheme"
+                android:textColorHint="@android:color/white"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:id="@+id/textInputLayout" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+                app:layout_constraintEnd_toStartOf="@+id/textInputLayout5" android:layout_marginEnd="8dp">
+
+            <android.support.design.widget.TextInputEditText
+                    android:maxLines="1"
+                    android:textColor="@android:color/white"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Cpf" android:id="@+id/cpfCadastro"/>
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:theme="@style/EditTextTheme"
+                android:textColorHint="@android:color/white"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:id="@+id/textInputLayout2"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+                app:layout_constraintEnd_toStartOf="@+id/textInputLayout4" android:layout_marginEnd="8dp">
+
+            <android.support.design.widget.TextInputEditText
+                    android:maxLength="8"
+                    android:inputType="number"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Cep" android:id="@+id/cepCadastro"/>
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="50dp"
+                android:theme="@style/EditTextTheme"
+                android:textColorHint="@android:color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/textInputLayout4" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+            <android.support.design.widget.TextInputEditText
+                    android:id="@+id/numeroCadastro"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:hint="Nº" android:textAlignment="center"/>
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="120dp"
+                android:theme="@style/EditTextTheme"
+                android:textColorHint="@android:color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/textInputLayout5" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+            <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:hint="Nascimento"/>
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:theme="@style/EditTextTheme"
+                android:textColorHint="@android:color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/textInputLayout6" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp">
+
+            <android.support.design.widget.TextInputEditText
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:textColor="@android:color/white"
+                    android:id="@+id/logradouroCadastro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Logradouro"/>
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:theme="@style/EditTextTheme"
+                android:textColorHint="@android:color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/textInputLayout7"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/textInputLayout9" android:layout_marginEnd="8dp">
+
+            <android.support.design.widget.TextInputEditText
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Bairro" android:id="@+id/bairroCadastro"/>
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="50dp"
+                android:theme="@style/EditTextTheme"
+                android:textColorHint="@android:color/white"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp" android:id="@+id/textInputLayout9"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
+
+            <android.support.design.widget.TextInputEditText
+                    android:maxLength="2"
+                    android:inputType="text"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="UF" android:textAlignment="center" android:id="@+id/ufCadastro"/>
+        </android.support.design.widget.TextInputLayout>
+        <Button
+                android:text="Cadastrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp" android:background="@android:color/white"
+                android:textColor="@android:color/black"/>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

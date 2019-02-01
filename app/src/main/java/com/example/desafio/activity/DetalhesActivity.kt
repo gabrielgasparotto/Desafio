@@ -15,6 +15,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.activity_detalhes.*
+import java.math.BigDecimal
 
 
 class DetalhesActivity : AppCompatActivity() {
@@ -31,8 +32,7 @@ class DetalhesActivity : AppCompatActivity() {
 
         //Chamada dos métodos para popular os detalhes da Activity
         //E também a criação do mapa com o cep do Cliente
-        val cep = populaDetalhes()
-        criaMapa(cep)
+        populaDetalhes()
     }
 
     //Função que sobrescreve o retorno pra activity anterior
@@ -42,25 +42,22 @@ class DetalhesActivity : AppCompatActivity() {
     }
 
     //Função para popular os dados do Detalhes com informações vindas da lista
-    private fun populaDetalhes(): String{
+    private fun populaDetalhes(){
         val intent = intent
         nomeDetalhes.text = intent.getStringExtra("nomeCompleto")
         dataNascimentoDetalhes.text = intent.getStringExtra("dataNascimento")
         cpfDetalhes.text = intent.getStringExtra("cpf")
         val cep = intent.getStringExtra("cep")
-        return cep
+        val logradouro = intent.getStringExtra("logradouro")
+        val bairro = intent.getStringExtra("bairro")
+        val numero = intent.getStringExtra("numero")
+        criaMapa(cep, logradouro, bairro, numero)
     }
 
     //Função que cria o mapa usando o Cep do Usuario cadastrado
-    private fun criaMapa(cep: String) {
-        val call = RetrofitInitializer().enderecoService().preencheEndereco(cep)
-        call.enqueue(callback({ r ->
-            val endereco = r.body()
-            val (latitude, longitude) = transformaLatLong("${endereco!!.logradouro}, ${endereco.bairro}")
-            configuraMapa(latitude, longitude)
-        }, { t ->
-            Log.e("Erro de retorno", "${t.message}")
-        }))
+    private fun criaMapa(cep: String, logradouro: String, bairro: String, numero: String) {
+        val (latitude, longitude) = transformaLatLong("${logradouro}, ${bairro} ${numero}")
+        configuraMapa(latitude, longitude)
     }
 
     //Função que configura o mapa pela Api do Google Maps
@@ -69,7 +66,7 @@ class DetalhesActivity : AppCompatActivity() {
         mapDetalhes.getMapAsync(OnMapReadyCallback {
             googleMap = it
             val latLng = LatLng(latitude, longitude)
-            googleMap.addMarker(MarkerOptions().position(latLng).title("Casa"))
+            googleMap.addMarker(MarkerOptions().position(latLng).title("Residencia"))
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
 
         })

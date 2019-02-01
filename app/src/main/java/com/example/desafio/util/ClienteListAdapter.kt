@@ -30,6 +30,9 @@ class ClienteListAdapter(val clientes: ArrayList<Cliente>,
             intent.putExtra("dataNascimento", cliente.dataNascimento)
             intent.putExtra("cpf", cliente.cpf)
             intent.putExtra("cep", cliente.endereco.cep)
+            intent.putExtra("logradouro", cliente.endereco.logradouro)
+            intent.putExtra("bairro", cliente.endereco.bairro)
+            intent.putExtra("numero", cliente.endereco.numero)
             context.startActivity(intent)
         }
 
