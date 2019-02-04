@@ -4,10 +4,7 @@ import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import com.example.desafio.R
-import com.example.desafio.dao.RetrofitInitializer
-import com.example.desafio.extension.callback
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -15,7 +12,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.activity_detalhes.*
-import java.math.BigDecimal
 
 
 class DetalhesActivity : AppCompatActivity() {
@@ -47,15 +43,14 @@ class DetalhesActivity : AppCompatActivity() {
         nomeDetalhes.text = intent.getStringExtra("nomeCompleto")
         dataNascimentoDetalhes.text = intent.getStringExtra("dataNascimento")
         cpfDetalhes.text = intent.getStringExtra("cpf")
-        val cep = intent.getStringExtra("cep")
         val logradouro = intent.getStringExtra("logradouro")
         val bairro = intent.getStringExtra("bairro")
         val numero = intent.getStringExtra("numero")
-        criaMapa(cep, logradouro, bairro, numero)
+        criaMapa(logradouro, bairro, numero)
     }
 
     //Função que cria o mapa usando o Cep do Usuario cadastrado
-    private fun criaMapa(cep: String, logradouro: String, bairro: String, numero: String) {
+    private fun criaMapa(logradouro: String, bairro: String, numero: String) {
         val (latitude, longitude) = transformaLatLong("${logradouro}, ${bairro} ${numero}")
         configuraMapa(latitude, longitude)
     }

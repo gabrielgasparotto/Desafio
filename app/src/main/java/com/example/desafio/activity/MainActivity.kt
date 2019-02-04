@@ -2,18 +2,16 @@ package com.example.desafio.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import com.example.desafio.R
 import com.example.desafio.extension.formataData
 import com.example.desafio.model.Cliente
-import com.example.desafio.model.Endereco
 import com.example.desafio.util.ClienteListAdapter
+import com.example.desafio.util.DatabaseHandler
 
 import kotlinx.android.synthetic.main.activity_main.*
-import java.math.BigDecimal
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -23,9 +21,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        var clientes: ArrayList<Cliente> = addClientes();
 
-        fab.setOnClickListener { view ->
+        val dbHandler = DatabaseHandler(this)
+        val clientes: ArrayList<Cliente> = dbHandler.listCliente();
+
+        fab.setOnClickListener {_->
             startActivity(Intent(this, CadastroActivity::class.java))
         }
 
@@ -33,50 +33,4 @@ class MainActivity : AppCompatActivity() {
         recycleCliente.layoutManager = GridLayoutManager(this, 1)
         recycleCliente.adapter = ClienteListAdapter(clientes, this)
     }
-
-    fun addClientes(): ArrayList<Cliente>{
-
-        val endereco = Endereco(cep = "09853530",
-            logradouro = "Rua Teresina",
-            bairro = "Cooperativa",
-            uf = "SP",
-            numero = "49"
-        )
-
-        val endereco2 = Endereco(cep = "07074020",
-            logradouro = "Rua São Daniel",
-            bairro = "Vila Galvão",
-            uf = "SP",
-            numero = "236"
-        )
-
-        val cliente = Cliente(
-            nomeCompleto = "Gabriel Gasparotto Souza Cabral",
-            cpf = "462.426.308-18",
-            endereco = endereco,
-            dataNascimento = "16/02/1998"
-        )
-
-        val cliente2 = Cliente(
-            nomeCompleto = "Marcel Ferry",
-            cpf = "462.426.308-18",
-            endereco = endereco2,
-            dataNascimento = Calendar.getInstance().formataData()
-        )
-
-        var clientes: ArrayList<Cliente> = ArrayList()
-        clientes.add(cliente)
-        clientes.add(cliente2)
-        clientes.add(cliente)
-        clientes.add(cliente2)
-        clientes.add(cliente)
-        clientes.add(cliente2)
-        clientes.add(cliente)
-        clientes.add(cliente2)
-        clientes.add(cliente)
-        clientes.add(cliente2)
-        return clientes
-    }
-
-
 }
