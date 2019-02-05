@@ -4,6 +4,7 @@ import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import com.example.desafio.R
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -12,6 +13,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.activity_detalhes.*
+import java.lang.Exception
 
 
 class DetalhesActivity : AppCompatActivity() {
@@ -57,14 +59,18 @@ class DetalhesActivity : AppCompatActivity() {
 
     //Função que configura o mapa pela Api do Google Maps
     private fun configuraMapa(latitude: Double, longitude: Double) {
-        mapDetalhes = supportFragmentManager.findFragmentById(R.id.mapDetalhes) as SupportMapFragment
-        mapDetalhes.getMapAsync(OnMapReadyCallback {
-            googleMap = it
-            val latLng = LatLng(latitude, longitude)
-            googleMap.addMarker(MarkerOptions().position(latLng).title("Residencia"))
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
+        try {
+            mapDetalhes = supportFragmentManager.findFragmentById(R.id.mapDetalhes) as SupportMapFragment
+            mapDetalhes.getMapAsync(OnMapReadyCallback {
+                googleMap = it
+                val latLng = LatLng(latitude, longitude)
+                googleMap.addMarker(MarkerOptions().position(latLng).title("Residencia"))
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
 
-        })
+            })
+        }catch (e: Exception){
+            Toast.makeText(this, "Erro para carregar mapa", Toast.LENGTH_SHORT).show()
+        }
     }
 
     //Função que transforma cep em latitude e longitude

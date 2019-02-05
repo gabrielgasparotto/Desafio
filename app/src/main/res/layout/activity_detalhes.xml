@@ -5,7 +5,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.DetalhesActivity">
+        tools:context=".activity.DetalhesActivity"
+        android:background="@android:color/black">
 
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -24,26 +25,30 @@
                 android:id="@+id/nomeDetalhes" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/imageView2"
-                android:textSize="18sp" android:textColor="@android:color/black" android:layout_marginEnd="8dp"
+                android:textSize="18sp" android:textColor="@android:color/white" android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"/>
 
         <TextView
                 android:text="16/02/1998"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dataNascimentoDetalhes" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                android:id="@+id/dataNascimentoDetalhes" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp" app:layout_constraintTop_toBottomOf="@+id/nomeDetalhes"
-                android:textSize="16sp" app:layout_constraintHorizontal_bias="0.498"/>
+                android:textSize="16sp" app:layout_constraintHorizontal_bias="0.498"
+                android:textColor="@android:color/white"/>
 
         <TextView
                 android:text="462.426.308-18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/cpfDetalhes" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/dataNascimentoDetalhes" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dataNascimentoDetalhes"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="8dp" android:textSize="16sp" app:layout_constraintHorizontal_bias="0.498"/>
+                android:layout_marginStart="8dp" android:textSize="16sp" app:layout_constraintHorizontal_bias="0.498"
+                android:textColor="@android:color/white"/>
 
         <fragment
                 android:name="com.google.android.gms.maps.SupportMapFragment"

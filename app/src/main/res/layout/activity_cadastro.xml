@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent"
-        android:background="@drawable/background2"
+        android:background="@android:color/black"
         tools:context=".activity.CadastroActivity">
 
     <android.support.constraint.ConstraintLayout
@@ -56,7 +56,7 @@
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
                 android:id="@+id/textInputLayout" android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-                app:layout_constraintEnd_toStartOf="@+id/textInputLayout5" android:layout_marginEnd="8dp">
+                app:layout_constraintEnd_toStartOf="@+id/dataNascimentoCadastro" android:layout_marginEnd="8dp">
 
             <android.support.design.widget.TextInputEditText
                     android:maxLines="1"
@@ -103,21 +103,19 @@
                     android:layout_height="wrap_content"
                     android:hint="Nº" android:textAlignment="center"/>
         </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
+        <EditText
                 android:layout_width="120dp"
                 android:theme="@style/EditTextTheme"
                 android:textColorHint="@android:color/white"
                 android:layout_height="wrap_content"
-                android:id="@+id/textInputLayout5" app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
-
-            <android.support.design.widget.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:hint="Nascimento" android:id="@+id/dataNascimentoCadastro"/>
-        </android.support.design.widget.TextInputLayout>
+                android:id="@+id/dataNascimentoCadastro"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="12dp"
+                android:layout_marginTop="17dp"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+                android:hint="Nascimento"
+                android:textColor="@android:color/white">
+        </EditText>
         <android.support.design.widget.TextInputLayout
                 android:layout_width="0dp"
                 android:theme="@style/EditTextTheme"
